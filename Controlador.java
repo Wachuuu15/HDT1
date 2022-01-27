@@ -17,6 +17,63 @@ public class Controlador{
         this.numBoton = "";
         this.opcion = true;
     }
-        
+
+        public boolean isEncendido() {
+            return encendido;
+        }
+
+        public void setEncendido(boolean encendido) {
+            this.encendido = encendido;
+        }
+
+        public boolean isTipoSenal() {
+            return tipoSenal;
+        }
+
+        public void setTipoSenal(boolean tipoSenal) {
+            this.tipoSenal = tipoSenal;
+        }
+
+        public float getAMactual() {
+            return AMactual;
+        }
+
+        public void setAMactual(float aMactual) {
+            AMactual = aMactual;
+        }
+
+        public float getFMactual() {
+            return FMactual;
+        }
+
+        public void setFMactual(float fMactual) {
+            FMactual = fMactual;
+        }
+
+        public String[] getEmisorasGuardadas() {
+            return emisorasGuardadas;
+        }
+
+        public void setEmisorasGuardadas(String[] emisorasGuardadas) {
+            this.emisorasGuardadas = emisorasGuardadas;
+        }
+
+        public String getNumBoton() {
+            return numBoton;
+        }
+
+        public void setNumBoton(String numBoton) {
+            this.numBoton = numBoton;
+        }
+
+        public boolean isOpcion() {
+            return opcion;
+        }
+
+        public void setOpcion(boolean opcion) {
+            this.opcion = opcion;
+        }
+    
+    
     
 }
