@@ -4,7 +4,7 @@ public class Controlador implements Radio{
         private boolean tipoSenal; //(true: AM, false: FM);
         private boolean am; //hice cambios
         private boolean fm; //hice cambios
-        private String[] emisorasGuardadas;
+        private String[] emisorasGuardadas = new String[12];
         private String numBoton;
         private boolean opcion;
         
@@ -13,7 +13,7 @@ public class Controlador implements Radio{
         this.tipoSenal = true;
         /**this.am = 0;
         this.fm = 0;*/
-        this.emisorasGuardadas[12] = "";
+        //this.emisorasGuardadas[12] = "";
         this.numBoton = "";
         this.opcion = true;
 
@@ -134,7 +134,15 @@ public class Controlador implements Radio{
 
         @Override
         public String cambiarSenal(boolean opcion) {
-            // TODO Auto-generated method stub
+            if(tipoSenal == true){
+
+                opcion = false;
+
+            } else if(tipoSenal == false){
+
+                opcion = true;
+
+            }
             return null;
         }
 
