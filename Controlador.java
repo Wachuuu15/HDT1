@@ -16,6 +16,8 @@ public class Controlador{
         this.emisorasGuardadas[12] = "";
         this.numBoton = "";
         this.opcion = true;
+
+        
     }
 
         public boolean isEncendido() {
