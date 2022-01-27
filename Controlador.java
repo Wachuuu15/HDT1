@@ -16,8 +16,6 @@ public class Controlador implements Radio{
         //this.emisorasGuardadas[12] = "";
         this.numBoton = "";
         this.opcion = true;
-
-        
     }
 
         public boolean isEncendido() {
@@ -128,7 +126,14 @@ public class Controlador implements Radio{
 
         @Override
         public String seleccionarEmisoraGuardada(int numBoton) {
-            // TODO Auto-generated method stub
+            if(tipoSenal == true){
+
+                System.out.println("Emisora recien guardada" + emisorasGuardadas[numBoton]);
+
+            } else {
+             
+                System.out.println("Emisora recien guardada" + emisorasGuardadas[numBoton]);
+            }
             return null;
         }
 
@@ -148,8 +153,7 @@ public class Controlador implements Radio{
 
         @Override
         public boolean getTipoSenal() {
-            // TODO Auto-generated method stub
-            return false;
+            return this.tipoSenal;
         }
 
         @Override
