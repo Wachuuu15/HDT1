@@ -1,4 +1,4 @@
-public class Controlador{
+public class Controlador implements Radio{
     
         private boolean encendido; // Determina el estado de la radio, true (encendido) y false (apagado). 
         private boolean tipoSenal; //(true: AM, false: FM);
@@ -74,6 +74,66 @@ public class Controlador{
 
         public void setOpcion(boolean opcion) {
             this.opcion = opcion;
+        }
+
+        @Override
+        public void encenderApagar() {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public boolean comprobarEncendido() {
+            // TODO Auto-generated method stub
+            return false;
+        }
+
+        @Override
+        public String guardarEmisoraActual() {
+            // TODO Auto-generated method stub
+            return null;
+        }
+
+        @Override
+        public String seleccionarEmisoraGuardada() {
+            // TODO Auto-generated method stub
+            return null;
+        }
+
+        @Override
+        public String cambiarSenal() {
+            // TODO Auto-generated method stub
+            return null;
+        }
+
+        @Override
+        public boolean getTipoSenal() {
+            // TODO Auto-generated method stub
+            return false;
+        }
+
+        @Override
+        public void subirEmisora() {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public void bajarEmisora() {
+            // TODO Auto-generated method stub
+            
+        }
+
+        @Override
+        public float getEmisoraActual() {
+            // TODO Auto-generated method stub
+            return 0;
+        }
+
+        @Override
+        public boolean comprobarEncendida() {
+            // TODO Auto-generated method stub
+            return false;
         }
     
     
