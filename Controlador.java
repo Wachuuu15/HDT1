@@ -7,4 +7,16 @@ public class Controlador{
         private String[] emisorasGuardadas;
         private String numBoton;
         private boolean opcion;
+        
+        public Controlador(){
+        this.encendido = true;
+        this.tipoSenal = true;
+        this.AMactual = 0;
+        this.FMactual = 0;
+        this.emisorasGuardadas[12] = "";
+        this.numBoton = "";
+        this.opcion = true;
+    }
+        
+    
 }
