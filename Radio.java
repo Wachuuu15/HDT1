@@ -4,11 +4,11 @@ public interface Radio{
     
     public boolean comprobarEncendido();
 
-    public String guardarEmisoraActual(numBoton);
+    public String guardarEmisoraActual(int numBoton);
   
-    public String seleccionarEmisoraGuardada(numBoton);
+    public String seleccionarEmisoraGuardada(int numBoton);
   
-    public String cambiarSenal(opcion);
+    public String cambiarSenal(boolean opcion);
   
     public boolean getTipoSenal();
   

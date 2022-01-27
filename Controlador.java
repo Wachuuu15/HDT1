@@ -83,30 +83,49 @@ public class Controlador implements Radio{
 
         @Override
         public void encenderApagar() {
-            // TODO Auto-generated method stub
+            if(encendido == true){
+                setEncendido(false);
+            }
+            else{
+                setEncendido(true);
+            }
             
         }
 
         @Override
         public boolean comprobarEncendido() {
-            // TODO Auto-generated method stub
-            return false;
+            boolean estado = false;
+            if(encendido == true){
+                estado = false;
+            }
+            else{
+                estado = true;
+            }
+
+            return estado;
         }
 
         @Override
-        public String guardarEmisoraActual() {
+        public String guardarEmisoraActual(int numBoton) {
+
+            if(tipoSenal == true){
+                emisorasGuardadas[numBoton] = String.valueOf(AMactual);
+            }
+            else{
+                emisorasGuardadas[numBoton] = String.valueOf(FMactual);
+            }
+
+            return "A guardado la emisora en el boton " + numBoton + "correctamente";
+        }
+
+        @Override
+        public String seleccionarEmisoraGuardada(int numBoton) {
             // TODO Auto-generated method stub
             return null;
         }
 
         @Override
-        public String seleccionarEmisoraGuardada() {
-            // TODO Auto-generated method stub
-            return null;
-        }
-
-        @Override
-        public String cambiarSenal() {
+        public String cambiarSenal(boolean opcion) {
             // TODO Auto-generated method stub
             return null;
         }
