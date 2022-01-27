@@ -1,9 +1,9 @@
 public class Controlador implements Radio{
     
-        private boolean encendido; // Determina el estado de la radio, true (encendido) y false (apagado). 
+        private boolean encendido = false; // Determina el estado de la radio, true (encendido) y false (apagado). 
         private boolean tipoSenal; //(true: AM, false: FM);
-        private float AMactual;
-        private float FMactual;
+        private boolean am; //hice cambios
+        private boolean fm; //hice cambios
         private String[] emisorasGuardadas;
         private String numBoton;
         private boolean opcion;
@@ -11,8 +11,8 @@ public class Controlador implements Radio{
         public Controlador(){
         this.encendido = true;
         this.tipoSenal = true;
-        this.AMactual = 0;
-        this.FMactual = 0;
+        /**this.am = 0;
+        this.fm = 0;*/
         this.emisorasGuardadas[12] = "";
         this.numBoton = "";
         this.opcion = true;
@@ -36,20 +36,20 @@ public class Controlador implements Radio{
             this.tipoSenal = tipoSenal;
         }
 
-        public float getAMactual() {
-            return AMactual;
+        public boolean getam() {
+            return this.am;
         }
 
-        public void setAMactual(float aMactual) {
-            AMactual = aMactual;
+        public void setam(boolean am) {
+            this.am = am;
         }
 
-        public float getFMactual() {
-            return FMactual;
+        public boolean getFm() {
+            return this.fm;
         }
 
-        public void setFMactual(float fMactual) {
-            FMactual = fMactual;
+        public void setFm(boolean fm) {
+            this.fm = fm;
         }
 
         public String[] getEmisorasGuardadas() {
@@ -77,8 +77,16 @@ public class Controlador implements Radio{
         }
 
 
-
-
+        public boolean FM_AM(){
+            if (fm == false || am == true) {
+              fm = true;
+              am = false;
+            } else if (am == false || fm == true){
+              am = true;
+              fm = false;
+            }
+            return am;
+        } 
 
 
         @Override
@@ -92,7 +100,7 @@ public class Controlador implements Radio{
             
         }
 
-        @Override
+        @Override//pa que sirve esta onda no enetendí si ya sabes que esta encendido)?
         public boolean comprobarEncendido() {
             boolean estado = false;
             if(encendido == true){
@@ -109,10 +117,10 @@ public class Controlador implements Radio{
         public String guardarEmisoraActual(int numBoton) {
 
             if(tipoSenal == true){
-                emisorasGuardadas[numBoton] = String.valueOf(AMactual);
+                emisorasGuardadas[numBoton] = String.valueOf(am);
             }
             else{
-                emisorasGuardadas[numBoton] = String.valueOf(FMactual);
+                emisorasGuardadas[numBoton] = String.valueOf(fm);
             }
 
             return "A guardado la emisora en el boton " + numBoton + "correctamente";
