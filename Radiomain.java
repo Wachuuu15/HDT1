@@ -18,7 +18,7 @@ public class Radiomain{
             System.out.println("¿Que desea hacer?");
             System.out.println("1. Encender/apagar");
             System.out.println("2. Cambia de AM a FM a AM");
-            System.out.println("3. Avanzar en el dia de las emisoras"); 
+            System.out.println("3. Avanzar en el dial de las emisoras"); 
             System.out.println("4. Permite guardar una emisora en uno de los 12 botones");
             System.out.println("5. Permite seleccionar la emisora puesta en un botón");
             System.out.println("6. Apagar la Radio\n");
