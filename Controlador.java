@@ -76,6 +76,11 @@ public class Controlador implements Radio{
             this.opcion = opcion;
         }
 
+
+
+
+
+
         @Override
         public void encenderApagar() {
             // TODO Auto-generated method stub
@@ -129,13 +134,5 @@ public class Controlador implements Radio{
             // TODO Auto-generated method stub
             return 0;
         }
-
-        @Override
-        public boolean comprobarEncendida() {
-            // TODO Auto-generated method stub
-            return false;
-        }
-    
-    
     
 }
