@@ -2,8 +2,8 @@ public class Controlador implements Radio{
     
         private boolean encendido; // Determina el estado de la radio, true (encendido) y false (apagado). 
         private boolean tipoSenal; //(true: AM, false: FM);
-        private double AMactual;
-        private double FMactual;
+        private float AMactual;
+        private float FMactual;
         private String[] emisorasGuardadas;
         private String numBoton;
         private boolean opcion;
@@ -12,7 +12,7 @@ public class Controlador implements Radio{
         this.encendido = true;
         this.tipoSenal = true;
         this.AMactual = 530;
-        this.FMactual = 87.9;
+        this.FMactual = 87.9f;
         this.emisorasGuardadas[12] = "";
         this.numBoton = "";
         this.opcion = true;
@@ -36,15 +36,15 @@ public class Controlador implements Radio{
             return AMactual;
         }
 
-        public void setAMactual(double aMactual) {
+        public void setAMactual(float aMactual) {
             AMactual = aMactual;
         }
 
-        public double getFMactual() {
+        public float getFMactual() {
             return FMactual;
         }
 
-        public void setFMactual(double fMactual) {
+        public void setFMactual(float fMactual) {
             FMactual = fMactual;
         }
 
@@ -165,9 +165,9 @@ public class Controlador implements Radio{
                 //}
 
             } else if(tipoSenal == false){
-               FMactual = FMactual + 0.2;
+               FMactual = FMactual + 0.2f;
                 if (FMactual == 107.9){
-                    FMactual = 87.9;
+                    FMactual = 87.9f;
                 }
             }
             
@@ -193,9 +193,9 @@ public class Controlador implements Radio{
                 //}
 
             } else if(tipoSenal == false){
-                FMactual = FMactual - 0.2;
+                FMactual = FMactual - 0.2f;
                 if (FMactual == 87.9){
-                    FMactual = 107.9;
+                    FMactual = 107.9f;
                 }
             }
             
@@ -203,12 +203,12 @@ public class Controlador implements Radio{
         }
 
         @Override
-        public Double getEmisoraActual() {
+        public float getEmisoraActual() {
             // TODO Auto-generated method stub
             /**
              * si es fm o am 
              */
-            double ma = 0;
+            float ma = 0;
             if(tipoSenal == true){
                 ma = AMactual;
             } else {

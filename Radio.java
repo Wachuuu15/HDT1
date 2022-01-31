@@ -16,6 +16,6 @@ public interface Radio{
 
     public void bajarEmisora();
   
-    public Double getEmisoraActual();
+    public float getEmisoraActual();
     
 }
