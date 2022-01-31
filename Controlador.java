@@ -1,21 +1,23 @@
 public class Controlador implements Radio{
     
-        private boolean encendido = false; // Determina el estado de la radio, true (encendido) y false (apagado). 
+        private boolean encendido; // Determina el estado de la radio, true (encendido) y false (apagado). 
         private boolean tipoSenal; //(true: AM, false: FM);
-        private boolean am; //hice cambios
-        private boolean fm; //hice cambios
-        private String[] emisorasGuardadas = new String[12];
+        private float AMactual;
+        private float FMactual;
+        private String[] emisorasGuardadas;
         private String numBoton;
         private boolean opcion;
         
         public Controlador(){
         this.encendido = true;
         this.tipoSenal = true;
-        /**this.am = 0;
-        this.fm = 0;*/
-        //this.emisorasGuardadas[12] = "";
+        this.AMactual = 0;
+        this.FMactual = 0;
+        this.emisorasGuardadas[12] = "";
         this.numBoton = "";
         this.opcion = true;
+
+        
     }
 
         public boolean isEncendido() {
@@ -26,28 +28,24 @@ public class Controlador implements Radio{
             this.encendido = encendido;
         }
 
-        public boolean isTipoSenal() {
-            return tipoSenal;
-        }
-
         public void setTipoSenal(boolean tipoSenal) {
             this.tipoSenal = tipoSenal;
         }
 
-        public boolean getam() {
-            return this.am;
+        public float getAMactual() {
+            return AMactual;
         }
 
-        public void setam(boolean am) {
-            this.am = am;
+        public void setAMactual(float aMactual) {
+            AMactual = aMactual;
         }
 
-        public boolean getFm() {
-            return this.fm;
+        public float getFMactual() {
+            return FMactual;
         }
 
-        public void setFm(boolean fm) {
-            this.fm = fm;
+        public void setFMactual(float fMactual) {
+            FMactual = fMactual;
         }
 
         public String[] getEmisorasGuardadas() {
@@ -73,18 +71,6 @@ public class Controlador implements Radio{
         public void setOpcion(boolean opcion) {
             this.opcion = opcion;
         }
-
-
-        public boolean FM_AM(){
-            if (fm == false || am == true) {
-              fm = true;
-              am = false;
-            } else if (am == false || fm == true){
-              am = true;
-              fm = false;
-            }
-            return am;
-        } 
 
 
         @Override
@@ -115,10 +101,10 @@ public class Controlador implements Radio{
         public String guardarEmisoraActual(int numBoton) {
 
             if(tipoSenal == true){
-                emisorasGuardadas[numBoton] = String.valueOf(am);
+                emisorasGuardadas[numBoton] = String.valueOf(AMactual);
             }
             else{
-                emisorasGuardadas[numBoton] = String.valueOf(fm);
+                emisorasGuardadas[numBoton] = String.valueOf(FMactual);
             }
 
             return "A guardado la emisora en el boton " + numBoton + "correctamente";
@@ -126,15 +112,15 @@ public class Controlador implements Radio{
 
         @Override
         public String seleccionarEmisoraGuardada(int numBoton) {
+            float em = 0;
             if(tipoSenal == true){
-
-                System.out.println("Emisora recien guardada" + emisorasGuardadas[numBoton]);
-
+                AMactual = Float.valueOf(emisorasGuardadas[numBoton]);
+                em = AMactual;
             } else {
-             
-                System.out.println("Emisora recien guardada" + emisorasGuardadas[numBoton]);
+                FMactual = Float.valueOf(emisorasGuardadas[numBoton]);
+                em = FMactual;
             }
-            return null;
+            return "Usted a puesto la emisora " + em;
         }
 
         @Override
@@ -148,7 +134,7 @@ public class Controlador implements Radio{
                 opcion = true;
 
             }
-            return null;
+            return "A cambido exitosamente la señal";
         }
 
         @Override

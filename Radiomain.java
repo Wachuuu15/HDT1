@@ -37,7 +37,7 @@ public class Radiomain{
                     break;
 
                 case 2:
-                c.FM_AM();
+
                 break;
             
                 default:
