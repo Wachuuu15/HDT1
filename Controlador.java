@@ -12,8 +12,8 @@ public class Controlador implements Radio{
         this.encendido = true;
         this.tipoSenal = true;
         this.AMactual = 530;
-        this.FMactual = 87.9;
-        this.emisorasGuardadas[12] = "";
+        this.FMactual = 87.9f;
+        //this.emisorasGuardadas[12] = "";
         this.numBoton = "";
         this.opcion = true;
 
@@ -32,7 +32,7 @@ public class Controlador implements Radio{
             this.tipoSenal = tipoSenal;
         }
 
-        public float getAMactual() {
+        public double getAMactual() {
             return AMactual;
         }
 
@@ -71,6 +71,8 @@ public class Controlador implements Radio{
         public void setOpcion(boolean opcion) {
             this.opcion = opcion;
         }
+
+
 
 
         @Override
@@ -112,7 +114,7 @@ public class Controlador implements Radio{
 
         @Override
         public String seleccionarEmisoraGuardada(int numBoton) {
-            float em = 0;
+            double em = 0;
             if(tipoSenal == true){
                 AMactual = Float.valueOf(emisorasGuardadas[numBoton]);
                 em = AMactual;
@@ -163,9 +165,9 @@ public class Controlador implements Radio{
                 //}
 
             } else if(tipoSenal == false){
-               FMactual = FMactual + 0.2;
+               FMactual = FMactual + 0.2f;
                 if (FMactual == 107.9){
-                    FMactual = 87.9;
+                    FMactual = 87.9f;
                 }
             }
             
@@ -191,9 +193,9 @@ public class Controlador implements Radio{
                 //}
 
             } else if(tipoSenal == false){
-               FMactual = FMactual - 0.2;
+                FMactual = FMactual - 0.2f;
                 if (FMactual == 87.9){
-                    FMactual = 107.9;
+                    FMactual = 107.9f;
                 }
             }
             
