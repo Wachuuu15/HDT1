@@ -1,3 +1,4 @@
+
 public class Controlador implements Radio{
     
         private boolean encendido; // Determina el estado de la radio, true (encendido) y false (apagado). 
@@ -15,8 +16,6 @@ public class Controlador implements Radio{
         this.FMactual = 87.9f;
         this.numBoton = "";
         this.opcion = true;
-
-        
     }
 
         public boolean isEncendido() {
@@ -148,10 +147,10 @@ public class Controlador implements Radio{
 
             if(tipoSenal == true){
 
-                float A = getAMactual() + 10;
-                setAMactual(A);
-                if (getAMactual() == 1610);{
-                    setAMactual(530);
+                AMactual += 10; 
+
+                if (AMactual == 1610);{
+                    AMactual = 530;
                 }
 
                 //else if(){
@@ -159,10 +158,9 @@ public class Controlador implements Radio{
                 //}
 
             } else if(tipoSenal == false){
-                float F = getFMactual() + 0.2f;
-                setFMactual(F);
-                if (getFMactual() == 107.9){
-                    setFMactual(87.9f);
+                FMactual += 0.2f;
+                if (FMactual == 107.9){
+                    FMactual = 87.9f;
                 }
             }
             
@@ -177,10 +175,9 @@ public class Controlador implements Radio{
              */
             if(tipoSenal == true){
 
-                float A = getAMactual() - 10;
-                setAMactual(A);
-                if (getAMactual() == 530);{
-                    setAMactual(1610);
+                AMactual -= 10;
+                if (AMactual == 530);{
+                    AMactual = 1610;
                 }
 
                 //else if(){
@@ -188,10 +185,9 @@ public class Controlador implements Radio{
                 //}
 
             } else if(tipoSenal == false){
-                float F = getFMactual() - 0.2f;
-                setFMactual(F);
-                if (getFMactual() == 87.9){
-                    setFMactual(87.9f);
+                FMactual -= 0.2f;
+                if (FMactual == 87.9){
+                    FMactual = 107.9f;
                 }
             }
             
@@ -203,15 +199,13 @@ public class Controlador implements Radio{
             /**
              * si es fm o am 
              */
-            float ma = 0;
             if(tipoSenal == true){
-                ma = getAMactual();
+               return AMactual;
             } else {
-                ma = getFMactual();
+                return FMactual;
             }
             
-             
-            return ma;
+            
             
         }
     
