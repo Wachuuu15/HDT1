@@ -13,7 +13,7 @@ public class Controlador implements Radio{
         this.tipoSenal = true;
         this.AMactual = 530;
         this.FMactual = 87.9f;
-        //this.emisorasGuardadas[12] = "";
+        this.emisorasGuardadas[12] = "";
         this.numBoton = "";
         this.opcion = true;
 
@@ -26,6 +26,10 @@ public class Controlador implements Radio{
 
         public void setEncendido(boolean encendido) {
             this.encendido = encendido;
+        }
+
+        public boolean isTipoSenal() {
+            return tipoSenal;
         }
 
         public void setTipoSenal(boolean tipoSenal) {
