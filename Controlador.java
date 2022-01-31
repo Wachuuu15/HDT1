@@ -11,8 +11,8 @@ public class Controlador implements Radio{
         public Controlador(){
         this.encendido = true;
         this.tipoSenal = true;
-        this.AMactual = 0;
-        this.FMactual = 0;
+        this.AMactual = 530;
+        this.FMactual = 87.9;
         this.emisorasGuardadas[12] = "";
         this.numBoton = "";
         this.opcion = true;
@@ -145,19 +145,77 @@ public class Controlador implements Radio{
         @Override
         public void subirEmisora() {
             // TODO Auto-generated method stub
+            /**
+             * tiposenal boolean true am y false si es fm
+             * si es am emisora actual +10 true
+             * false + 0.2 
+             */
+
+            if(tipoSenal == true){
+
+                AMactual = AMactual + 10;
+                if (AMactual == 1610);{
+                    AMactual = 530;
+                }
+
+                //else if(){
+               //     AMactual = AMactual + 10;
+                //}
+
+            } else if(tipoSenal == false){
+               FMactual = FMactual + 0.2;
+                if (FMactual == 107.9){
+                    FMactual = 87.9;
+                }
+            }
             
         }
+        
 
         @Override
         public void bajarEmisora() {
             // TODO Auto-generated method stub
+            /**
+             * restar 10 
+             * restar 0.2
+             */
+            if(tipoSenal == true){
+
+                AMactual = AMactual - 10;
+                if (AMactual == 530);{
+                    AMactual = 1610;
+                }
+
+                //else if(){
+               //     AMactual = AMactual + 10;
+                //}
+
+            } else if(tipoSenal == false){
+               FMactual = FMactual - 0.2;
+                if (FMactual == 87.9){
+                    FMactual = 107.9;
+                }
+            }
+            
             
         }
 
         @Override
         public float getEmisoraActual() {
             // TODO Auto-generated method stub
-            return 0;
+            /**
+             * si es fm o am 
+             */
+            float ma = 0;
+            if(tipoSenal == true){
+                ma = AMactual;
+            } else {
+                ma = FMactual;
+            }
+            
+             
+            return ma;
+            
         }
     
 }
