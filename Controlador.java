@@ -13,7 +13,7 @@ public class Controlador implements Radio{
         this.tipoSenal = true;
         this.AMactual = 530;
         this.FMactual = 87.9f;
-        this.emisorasGuardadas[12] = "";
+        //this.emisorasGuardadas[12] = "";
         this.numBoton = "";
         this.opcion = true;
 
