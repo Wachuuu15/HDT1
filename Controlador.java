@@ -7,10 +7,16 @@ public class Controlador implements Radio{
         private String[] emisorasGuardadas = new String[12];
         private String numBoton;
         private boolean opcion;
+        private boolean estado; 
+        private int estacionActualAM; 
+        private int estacionActualFM;
         
         public Controlador(){
         this.encendido = true;
         this.tipoSenal = true;
+        estado = false;
+        estacionActualAM = 530;
+        estacionActualFM = 87.9;
         /**this.am = 0;
         this.fm = 0;*/
         //this.emisorasGuardadas[12] = "";
@@ -18,6 +24,9 @@ public class Controlador implements Radio{
         this.opcion = true;
     }
 
+        public boolean getStatus(){
+            return opcion;
+        }
         public boolean isEncendido() {
             return encendido;
         }
@@ -70,6 +79,28 @@ public class Controlador implements Radio{
             return opcion;
         }
 
+        public int getSavedFreqAM(int slot) {
+        
+            if(radiosFavAM.get(slot - 1)  != null) {
+    
+                estacionActualAM = radiosFavAM.get(slot - 1);
+                return radiosFavAM.get(slot - 1);
+            }else {
+                return -1;
+            }    
+          }    
+
+          public void saveInFM(int slot, double freq) {
+            if(radiosFavAM.size() == 0){
+                for(int i=0; i<11; i++){
+                radiosFavFM.add(null);
+              }
+            }
+            radiosFavFM.set(slot - 1, freq);
+        }
+
+
+
         public void setOpcion(boolean opcion) {
             this.opcion = opcion;
         }
@@ -109,6 +140,11 @@ public class Controlador implements Radio{
             }
 
             return estado;
+        }
+
+
+        public int getActualMode() {
+            return transmision;
         }
 
         @Override
