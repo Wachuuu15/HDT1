@@ -6,14 +6,14 @@ public class Radiomain{
         /**
          * Aqui se crea las variables
          */
-        boolean salir = false;
+        int salir = 0;
         Scanner sc = new Scanner(System.in);
         Controlador c = new Controlador();
         int ask = 0;
         int numBoton;
         boolean opcion = true;
 
-        while (salir = true) 
+        while (salir ==  0) 
         {
             System.out.println("\nBienvenido a Radio la buena buena");
             System.out.println("¿Que desea hacer?");
@@ -22,13 +22,13 @@ public class Radiomain{
             System.out.println("3. Subir Emisora / Bajar Emisora"); 
             System.out.println("4. Guardar Emisora");
             System.out.println("5. Seleccionar Emisora");
-            System.out.println("6. Salir");
+            System.out.println("6. ver Emisora");
+            System.out.println("7. Salir");
 
             try {
                 ask = sc.nextInt();
                 sc.nextLine();
             } catch (Exception e) {
-                //TODO: handle exception
                 System.out.println("\nIngrese un numero\n");
             }
             switch (ask) {
@@ -44,16 +44,25 @@ public class Radiomain{
 
                 case 2:
                    // boolean opcion;
+                    System.out.println("1. AM   2. FM");
+                    int M = sc.nextInt();
+                    if(M == 1){
+                        opcion = true;
+                    } else if(M == 2){
+                        opcion = false;
+                    }
                     c.cambiarSenal(opcion);
                     if(c.isTipoSenal() == true){
                         System.out.println("\nLa radio esta en AM\n");
-                    }else{
+
+                    }else if(c.isTipoSenal() == false){
                         System.out.println("\nLa radio esta en FM\n");
+
                     }
                 break;
 
                 case 3:
-                    int OP = 1;
+                    int OP = 0;
                     while(OP == 0){
                         int opcion1;
                         System.out.println("Que desea hacer?");
@@ -67,7 +76,7 @@ public class Radiomain{
                         } else if(opcion1 == 2){
                             c.bajarEmisora();
                         } else if(opcion1 == 3){
-                            OP = 0;
+                            OP = 1;
                         } 
                     }
 
@@ -87,10 +96,15 @@ public class Radiomain{
                     System.out.println("Ingrese un numero de boton");
                     numBoton = sc.nextInt();
                     c.seleccionarEmisoraGuardada(numBoton);
+                    System.out.println(c.seleccionarEmisoraGuardada(numBoton));
                 break;
 
                 case 6:
-                    salir = true;
+                    System.out.println(c.getEmisoraActual());
+                break;
+
+                case 7:
+                    salir = 1;
                 break;
             }
 
